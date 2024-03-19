@@ -1,0 +1,53 @@
+
+
+.card{
+    width: 100%;
+    height: 380px;
+    border-radius: 8px; 
+    box-shadow: 0px 0px 80px 0px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & .main{
+
+        & figure{
+            width: 333px;
+            height: 229px;
+            border-radius: 4px;
+            background: #DEDEFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            & img{
+                width: 309px;
+                height: 205px;
+            }
+        }
+
+        & p{
+            margin-top: 20px;
+            width: 333px;
+            height: 36px;
+            color: #1B1B1B;
+            font-family: "Montserrat";
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+
+        & button{
+            margin-top: 21px;
+            width: 333px;
+            height: 50px;
+            border-radius: 4px;
+            background: #1B1B1B;
+            color: #FFF;
+            font-family: Montserrat;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+    }
+}
