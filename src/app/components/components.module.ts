@@ -7,6 +7,7 @@ import { CursosComponent } from './cursos/cursos.component';
 import { SigninComponent } from './sign/signin/signin.component';
 import { SignupComponent } from './sign/signup/signup.component';
 import { FormSignComponent } from './templates/form-sign/form-sign.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -22,7 +23,8 @@ import { FormSignComponent } from './templates/form-sign/form-sign.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ]
 })
 export class ComponentsModule { }

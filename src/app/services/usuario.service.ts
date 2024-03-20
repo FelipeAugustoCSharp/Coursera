@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { IUser } from './templates/IUser';
-import { Observable, delay, elementAt, first, of, switchMap, take, tap } from 'rxjs';
+import { Observable, delay, first, take, tap } from 'rxjs';
 import { IResponse } from './templates/IResponse';
 import { IPaises } from './templates/IPaises';
 
@@ -13,7 +13,7 @@ export class UsuarioService {
   
   private readonly Key_Api = `${environment.API_URL_PROD}/UsuarioCadastro`;
   usuario: string = "/login ou /register"
-
+  userId!: Pick<IUser, "id">;
   constructor(private http: HttpClient) { }
 
   getPaises(): Observable<IResponse<IPaises[]>> {
@@ -25,9 +25,25 @@ export class UsuarioService {
     );
   }
 
-  // login(usuario: Omit<IUser, "id">): Observable<Response<IUser>> {
-  //   return this.http.post<Response<IUser>>(`${this.Key_Api}/login`, usuario)
-  //     .pipe(first());
-  // }
+  createUser(usuario: Omit<IUser, "id">) : Observable<IResponse<IUser>> {
+    return this.http.post<IResponse<IUser>>(`${this.Key_Api}/register`, usuario)
+    .pipe(
+      tap((E) => console.log("passou o dado:" +E)),
+      first()
+    );
+  }
+  login(usuario: Pick<IUser, "email" | "senha">): Observable<IResponse<IUser>> {
+    return this.http.post<IResponse<IUser>>(`${this.Key_Api}/login`, usuario)
+      .pipe(
+        tap((data:any) => {
+          this.userId = data.dados.id
+          
+          localStorage.setItem("token", data.token);
+              
+          console.log(data.token);   
+        }),
+        first()
+      );
+  }
 
 }
