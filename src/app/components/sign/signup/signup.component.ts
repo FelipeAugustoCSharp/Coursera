@@ -14,6 +14,7 @@ export class SignupComponent {
   /**
    *
    */
+  mensagem: string = '';
   constructor(
     private userService: UsuarioService,
     private router: Router) {
@@ -35,5 +36,9 @@ export class SignupComponent {
       error:(e) => console.log("erro: "+ e)
             
     })
+
+    this.userService.mostrarMensagem.subscribe(
+      mensagem => this.mensagem = mensagem
+    );
   }
 }

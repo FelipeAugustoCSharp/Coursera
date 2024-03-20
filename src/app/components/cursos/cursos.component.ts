@@ -20,9 +20,7 @@ export class CursosComponent implements OnInit{
   ngOnInit(): void {
       this.userService.getPaises().subscribe({
         next:(pais) => {
-          this.Paises = pais.dados
-          console.log(this.Paises);
-          
+          this.Paises = pais.dados          
         }
       })
   }

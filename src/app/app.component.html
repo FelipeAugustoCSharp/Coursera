@@ -1,6 +1,11 @@
-<app-header></app-header>
+<div *ngIf="mostrar; else standard">
+  <app-header-usuario></app-header-usuario>
+</div>
 
 <div>
   <router-outlet></router-outlet>  
 </div>
 
+<ng-template #standard>
+  <app-header-standard></app-header-standard>
+</ng-template>

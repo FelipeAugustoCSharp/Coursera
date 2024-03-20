@@ -14,6 +14,8 @@ export class FormSignComponent implements OnInit{
   @Input() tela!: string;
   @Input() linkpage!:string;
   @Input() nameAction!: string;
+  @Input() message!: string;
+  @Input() esqueci_senha!: string;
   @Output() grupoFormulario: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 
     formulario!: FormGroup;

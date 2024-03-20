@@ -19,7 +19,7 @@ export class SigninComponent implements OnInit{
     private router: Router) {
     
   }
-
+  mensagem: string = '';
   ngOnInit(): void {
       
   }
@@ -36,6 +36,9 @@ export class SigninComponent implements OnInit{
       },
       error:(e) => console.log("erro: "+ e)
     }) 
+    this.userService.mostrarMensagem.subscribe(
+      mensagem => this.mensagem = mensagem
+    );
   }
 
   rotas() : void {

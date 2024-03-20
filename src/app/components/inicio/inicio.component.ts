@@ -5,10 +5,10 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  templateUrl: './inicio.component.html',
+  styleUrls: ['./inicio.component.scss']
 })
-export class HomeComponent implements OnInit{
+export class InicioComponent implements OnInit{
   
   constructor(private userService:UsuarioService) {
     
@@ -21,12 +21,8 @@ export class HomeComponent implements OnInit{
 
   obterPaises() {
     this.userService.getPaises().subscribe({
-      next: (pais: any) => {    
-        
-        this.Paises = pais.dados.filter((x: any) => x.id <= 4);         
-        
-        console.log(this.Paises);     
-        
+      next: (pais: any) => {            
+        this.Paises = pais.dados.filter((x: any) => x.id <= 4);                 
       },
       error: (err: any) => {
         console.log('Erro:', err);

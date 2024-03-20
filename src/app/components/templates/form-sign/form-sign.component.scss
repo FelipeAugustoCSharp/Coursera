@@ -9,6 +9,15 @@
     grid-template-rows: 100px 100px;
 
 
+    & .mensagem{
+        height: 3vh;
+        color: #1B1B1B;    
+        font-family: "Montserrat";
+        font-size: 15px;
+        font-weight: 600;
+
+    }
+
     & h1{
         color: #1B1B1B;    
         font-family: "Montserrat";
