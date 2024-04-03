@@ -32,7 +32,7 @@ export class SignupComponent {
     this.usuario.senha = formulario.controls["senha"].value
 
     this.userService.createUser(this.usuario).subscribe({
-      next:(v) => console.log(v),
+      next:(v:any) => console.log(v),
       error:(e) => console.log("erro: "+ e)
             
     })

@@ -4,7 +4,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderStandardComponent } from './components/header-standard/header-standard.component';
-import { ComponentsModule } from './components/components.module';
+import { ComponentsModule } from './components/Modules/components.module'
 import { HeaderUsuarioComponent } from './components/header-usuario/header-usuario.component';
 import { UsuarioService } from './services/usuario.service';
 import { HeaderComponent } from './components/templates/header/header.component';

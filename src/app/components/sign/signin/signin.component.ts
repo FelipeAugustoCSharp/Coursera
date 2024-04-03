@@ -31,10 +31,10 @@ export class SigninComponent implements OnInit{
     console.log(this.usuario);
     
     this.userService.login(this.usuario).subscribe({
-      next:(v) => {
+      next:(v:any) => {
         console.log(v)
       },
-      error:(e) => console.log("erro: "+ e)
+      error:(e:any) => console.log("erro: "+ e)
     }) 
     this.userService.mostrarMensagem.subscribe(
       mensagem => this.mensagem = mensagem

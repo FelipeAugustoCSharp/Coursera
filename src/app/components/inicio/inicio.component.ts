@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { CursosService } from 'src/app/services/cursos.service';
 import { IPaises } from 'src/app/services/templates/IPaises';
-import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +9,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class InicioComponent implements OnInit{
   
-  constructor(private userService:UsuarioService) {
+  constructor(private cursosService:CursosService) {
     
   }
   Paises!: IPaises[];
@@ -20,9 +19,9 @@ export class InicioComponent implements OnInit{
   }
 
   obterPaises() {
-    this.userService.getPaises().subscribe({
+    this.cursosService.getCountries().subscribe({
       next: (pais: any) => {            
-        this.Paises = pais.dados.filter((x: any) => x.id <= 4);                 
+        this.Paises = pais.dados.slice(0, 4);                 
       },
       error: (err: any) => {
         console.log('Erro:', err);
