@@ -18,22 +18,24 @@ export class UsuarioService {
   @Output() mostrarMensagem = new EventEmitter<string>();
   constructor(private http: HttpClient, private router: Router) { }
 
-  getPaises(): Observable<IResponse<IPaises[]>> {
-    return this.http
-    .get<IResponse<IPaises[]>>("../../assets/Country/Paises.json")
-    .pipe(
-      delay(100),
-      take(1) 
-    );
-  }
 
   createUser(usuario: Omit<IUser, "id">) : Observable<IResponse<IUser>> {
     return this.http.post<IResponse<IUser>>(`${this.Key_Api}/register`, usuario)
     .pipe(
-      tap((E) => console.log("passou o dado:" +E)),
+      tap((E:any) => console.log("passou o dado:" +E)),
       first()
     );
   }
+
+  getToken() {
+    if (localStorage.getItem("token")) {
+      this.mostrarMenu.emit(true)
+      this.router.navigate(["/home"])
+    }else{
+      this.router.navigate(["/signin"])
+    }
+  }
+
   login(usuario: Pick<IUser, "email" | "senha">): Observable<IResponse<IUser>> {
     return this.http.post<IResponse<IUser>>(`${this.Key_Api}/login`, usuario)
       .pipe(
@@ -57,6 +59,12 @@ export class UsuarioService {
 
   deslogar() : void{
     this.mostrarMenu.emit(false);
+  }
+
+  getCursosAluno() : Observable<IResponse<IUser>>{
+    return this.http.get<IResponse<IUser>>(`${this.Key_Api}`).pipe(
+      first()
+    )
   }
 
 }

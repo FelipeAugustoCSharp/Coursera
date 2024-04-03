@@ -1,22 +1,23 @@
-<form [formGroup]="formulario" (submit)="enviarFormulario()" class="form-component">
-    <h1>{{tela}}</h1>
+<div class="f34">
+    <form [formGroup]="formulario" (submit)="enviarFormulario()" class="form-component">
+            <h1>{{tela}}</h1>
 
+            <input type="hidden" formControlName="id">
+            <div class="email">
+                <input type="email" placeholder="Insira o seu email" formControlName="email">
+            </div>
+            <div class="password">
+                <input type="password" placeholder="Insira a sua Senha" formControlName="senha">
 
-    <input type="hidden" formControlName="id">
-    <div class="email">
-        <input type="email" placeholder="Insira o seu email" formControlName="email">
-    </div>
-    <div class="password">
-        <input type="password" placeholder="Insira a sua Senha" formControlName="senha">
+            </div>
 
-    </div>
+            <div *ngIf="message" class="mensagem">{{message}}</div>
 
-    <div *ngIf="message" class="mensagem">{{message}}</div>
+            <div class="esqueci-minha-senha">
+                <a >{{esqueci_senha}}</a>
+                <a routerLink="/{{linkpage}}" routerLinkActive="router-link-active" >{{nameAction}}</a>
+            </div>
 
-    <div class="esqueci-minha-senha">
-        <a >{{esqueci_senha}}</a>
-        <a routerLink="/{{linkpage}}" routerLinkActive="router-link-active" >{{nameAction}}</a>
-    </div>
-
-    <button class="btn-Submit" type="submit">Confirmar</button>
-</form>
+            <button class="btn-Submit" type="submit">Confirmar</button>
+    </form>
+</div>

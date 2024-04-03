@@ -1,0 +1,59 @@
+.holder{
+    margin-top: 30px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    font-family: "Montserrat";
+
+
+    & .concluido{
+        background-color: #DEDEFF;
+        width: 15%;
+        height: 100%;
+        border-radius: 8px ;
+    }
+
+    & .card{
+        width: 30%;
+        height: 300px;
+        
+        background-color: #DEDEFF;
+        border-radius: 8px ;
+
+
+
+        & h1{
+            font-family: "Montserrat";
+            font-weight: 500;
+            padding-left: 3rem;
+            background-color: #ececfc;
+            border-radius: 8px 8px 0px 0px ;
+        }
+        & .Moldura{
+            display: flex;
+            align-items: center;
+            gap: 10%;
+            min-height: 15rem;
+            padding: 1rem;
+            & .Imagem{
+                display: flex;
+                align-items: center;
+                margin-left: 5em;
+                height: 100%;
+                & .foto {
+                    width: 8rem;
+                    height: 8rem;
+                    border-radius: 50%;
+                    image-rendering:optimizeQuality;
+                }
+            }
+            & .text {
+                font-size: 1.2rem;
+                color: rgb(26, 26, 26);
+            }
+        }
+        
+    }
+  
+}

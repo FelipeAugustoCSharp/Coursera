@@ -16,7 +16,8 @@ export class HeaderUsuarioComponent {
   }
 
   deslogar(deslogar : boolean) : void{
-    this.userService.deslogar()   
-    this.router.navigate(["/"])
+    localStorage.removeItem("token");
+    this.userService.deslogar(); 
+    this.router.navigate(["/"]);
   }
 }

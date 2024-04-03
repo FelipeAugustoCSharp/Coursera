@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CursosService } from 'src/app/services/cursos.service';
 import { IPaises } from 'src/app/services/templates/IPaises';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -10,16 +11,14 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class CursosComponent implements OnInit{
 
   Paises: IPaises[] = []
-  /**
-   *
-   */
-  constructor(private userService: UsuarioService) {
+
+  constructor(private cursosService: CursosService) {
     
   }
 
   ngOnInit(): void {
-      this.userService.getPaises().subscribe({
-        next:(pais) => {
+      this.cursosService.getCountries().subscribe({
+        next:(pais:any) => {
           this.Paises = pais.dados          
         }
       })
